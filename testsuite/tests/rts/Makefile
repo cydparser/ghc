@@ -102,7 +102,7 @@ T13617:
 
 .PHONY: T14695
 T14695:
-	echo ":quit" | LD_LIBRARY_PATH="foo:" "$(TEST_HC)" $(filter-out -rtsopts, $(TEST_HC_OPTS_INTERACTIVE))
+	echo ":quit" | LD_LIBRARY_PATH="foo:$(LD_LIBRARY_PATH)" "$(TEST_HC)" $(filter-out -rtsopts, $(TEST_HC_OPTS_INTERACTIVE))
 
 .PHONY: InternalCounters
 InternalCounters:
