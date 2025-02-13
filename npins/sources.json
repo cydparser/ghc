@@ -1,0 +1,29 @@
+{
+  "pins": {
+    "ghc.nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "ghc/ghc.nix",
+        "server": "https://gitlab.haskell.org/"
+      },
+      "branch": "main",
+      "revision": "42b396235e831bdfcd1d232dd33148345bede6bc",
+      "url": "https://gitlab.haskell.org/api/v4/projects/ghc%2Fghc.nix/repository/archive.tar.gz?sha=42b396235e831bdfcd1d232dd33148345bede6bc",
+      "hash": "1ajxiwn2hmnrmwmwm13csvy0c3hn9zgizgr6vly1mnhhliwm1hgj"
+    },
+    "nixpkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-unstable",
+      "revision": "a79cfe0ebd24952b580b1cf08cd906354996d547",
+      "url": "https://github.com/nixos/nixpkgs/archive/a79cfe0ebd24952b580b1cf08cd906354996d547.tar.gz",
+      "hash": "1imkffvs7h2c9ppf00jb6m5ah9zk46i3dqxmzm4x4dfdiw5c92wq"
+    }
+  },
+  "version": 3
+}
