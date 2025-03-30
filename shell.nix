@@ -22,6 +22,8 @@ ghc-nix.overrideAttrs (
     "shellHook"
   ] (k: (old.${k} or [ ]) ++ ghc-rts.${k}))
   // {
+    CONFIG_ARGS = old.CONFIGURE_ARGS;
+
     shellHook = old.shellHook + ghc-rts.shellHook;
   }
 )
