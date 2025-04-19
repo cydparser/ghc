@@ -19,7 +19,6 @@ ghc-nix.overrideAttrs (
     "nativeBuildInputs"
     "propagatedBuildInputs"
     "propagatedNativeBuildInputs"
-    "shellHook"
   ] (k: (old.${k} or [ ]) ++ ghc-rts.${k}))
   // {
     CONFIG_ARGS = old.CONFIGURE_ARGS;
