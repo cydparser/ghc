@@ -118,3 +118,6 @@
 [submodule "libraries/file-io"]
 	path = libraries/file-io
 	url = https://gitlab.haskell.org/ghc/packages/file-io.git
+[submodule "rust"]
+	path = rust
+	url = https://github.com/cydparser/ghc-rust.git
