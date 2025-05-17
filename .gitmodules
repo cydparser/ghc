@@ -118,6 +118,3 @@
 [submodule "libraries/file-io"]
 	path = libraries/file-io
 	url = https://gitlab.haskell.org/ghc/packages/file-io.git
-[submodule "ghc-rts"]
-	path = ghc-rts
-	url = https://github.com/cydparser/ghc-rts.git
