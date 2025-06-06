@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "aecea292074647d9f52b52566cda436f6f4564a9",
-      "url": "https://gitlab.haskell.org/api/v4/projects/ghc%2Fghc.nix/repository/archive.tar.gz?sha=aecea292074647d9f52b52566cda436f6f4564a9",
-      "hash": "0w96mjfkkzpw3n8igjd7pzw0h5pykdl3s7yvnvf5ss3035qw68np"
+      "revision": "854fc8e4ba38893b8fb03500eb17f29dcfed79d1",
+      "url": "https://gitlab.haskell.org/api/v4/projects/ghc%2Fghc.nix/repository/archive.tar.gz?sha=854fc8e4ba38893b8fb03500eb17f29dcfed79d1",
+      "hash": "0889jfgvkciivvgi8477fl5f0ak2ln436z9kmkif7p3fkdklfaas"
     },
     "nixpkgs": {
       "type": "Git",
@@ -22,9 +22,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "2631b0b7abcea6e640ce31cd78ea58910d31e650",
-      "url": "https://github.com/nixos/nixpkgs/archive/2631b0b7abcea6e640ce31cd78ea58910d31e650.tar.gz",
-      "hash": "0crx0vfmvxxzj8viqpky4k8k7f744dsqnn1ki5qj270bx2w9ssid"
+      "revision": "910796cabe436259a29a72e8d3f5e180fc6dfacc",
+      "url": "https://github.com/nixos/nixpkgs/archive/910796cabe436259a29a72e8d3f5e180fc6dfacc.tar.gz",
+      "hash": "13xih2r8q1hk0c9silcjliqg8mjfmdqp7wnx9ybkp61535dapm2a"
     }
   },
   "version": 5
