@@ -21,4 +21,4 @@ Lib.a: Lib.o
 main: main.c
 	"$(TEST_HC)" $(filter-out -rtsopts, $(TEST_HC_OPTS)) \
 		-rdynamic -no-hs-main -optc-Werror -prof \
-		main.c -o main
+		main.c -o main -optc='-MJ' -optc='$(TOP)/compile_commands/linker-T24171.json'

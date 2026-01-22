@@ -201,6 +201,7 @@ _darcs/
 /stage3.package.conf
 /testsuite_summary*.txt
 /testsuite*.xml
+/testsuite/tests/**/*.json
 /testlog*
 /utils/iserv/iserv.cabal
 /utils/iserv-proxy/iserv-proxy.cabal

@@ -404,6 +404,10 @@ rtsPackageArgs = package rts ? do
 
           , input "**/prim/atomic.c"  ? (not <$> flag CcLlvmBackend) ?
             arg "-Wno-sync-nand"
+          , do
+              outputs <- getOutputs <&> filter (\o -> isSuffixOf "_o" o || isSuffixOf ".o" o)
+
+              foldMap (\o -> arg "-MJ" <> arg (o ++ ".json")) outputs
           ]
 
     mconcat

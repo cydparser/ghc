@@ -65,6 +65,7 @@ compileC = builder (Ghc CompileCWithGhc) ? do
     let ccArgs = [ getContextData ccOpts
                  , getStagedCCFlags
                  , cIncludeArgs
+                 , jsonArgs
                  , Dynamic `wayUnit` way ? pure [ "-fPIC", "-DDYNAMIC" ] ]
     mconcat [ arg "-Wall"
             , ghcLinkArgs
@@ -76,12 +77,19 @@ compileC = builder (Ghc CompileCWithGhc) ? do
             , arg "-o"
             , arg =<< getOutput ]
 
+jsonArgs :: Args
+jsonArgs = do
+  outputs <- getOutputs <&> filter (\o -> isSuffixOf "_o" o || isSuffixOf ".o" o)
+
+  foldMap (\o -> arg "-MJ" <> arg (o ++ ".json")) outputs
+
 compileCxx :: Args
 compileCxx = builder (Ghc CompileCppWithGhc) ? do
     way <- getWay
     let ccArgs = [ getContextData cxxOpts
                  , getStagedCCFlags
                  , cIncludeArgs
+                 , jsonArgs
                  , Dynamic `wayUnit` way ? pure [ "-fPIC", "-DDYNAMIC" ] ]
     mconcat [ arg "-Wall"
             , ghcLinkArgs

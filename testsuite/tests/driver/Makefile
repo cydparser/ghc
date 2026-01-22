@@ -305,7 +305,7 @@ test061b:
 test062a:
 	$(RM) Hello062a.hs Hello062a.hi Hello062a$(OBJSUFFIX) Hello062a.hc hello062a
 	echo "module Hello062a where { hello062a = putStrLn \"ok\" }" >Hello062a.hs
-	"$(TEST_HC)" $(TEST_HC_OPTS) -v0 --make -main-is Hello062a.hello062a Hello062a -o hello062a
+	"$(TEST_HC)" $(TEST_HC_OPTS) -v0 --make -main-is Hello062a.hello062a Hello062a -o hello062a -optc='-MJ' -optc='$(TOP)/compile_commands/hello062a.json'
 	./hello062a
 test062b:
 	$(RM) Hello062b.hs Hello062b.hi Hello062b$(OBJSUFFIX) Hello062b.hc hello062b

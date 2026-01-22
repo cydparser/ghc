@@ -3,7 +3,7 @@ include $(TOP)/mk/boilerplate.mk
 include $(TOP)/mk/test.mk
 
 ffi018_ghci_setup :
-	'$(TEST_HC)' $(TEST_HC_OPTS) $(ghciWayFlags) -c ffi018_ghci_c.c -o ffi018_ghci_c.o
+	'$(TEST_HC)' $(TEST_HC_OPTS) $(ghciWayFlags) -c ffi018_ghci_c.c -o ffi018_ghci_c.o -optc='-MJ' -optc='$(TOP)/compile_commands/ffi018_ghci_c.json'
 
 T1288_ghci_setup :
 	'$(TEST_HC)' $(TEST_HC_OPTS) $(ghciWayFlags) -c T1288_ghci_c.c -o T1288_ghci_c.o

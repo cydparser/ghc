@@ -2218,6 +2218,8 @@ async def extras_build(way: WayName, extra_mods, extra_hc_opts) -> PassFail:
 
     return passed(hc_opts=extra_hc_opts)
 
+c_re = re.compile(r'[.]c\b')
+
 async def simple_build(name: Union[TestName, str],
                  way: WayName,
                  extra_hc_opts: str,
@@ -2232,6 +2234,9 @@ async def simple_build(name: Union[TestName, str],
                  # Override auto-detection of whether to use --make or -c etc.
                  mode: Optional[str] = None) -> Any:
     opts = getTestOpts()
+
+    if c_re.search(extra_hc_opts):
+        extra_hc_opts = extra_hc_opts + ' -optc="-MJ" -optc="' + in_srcdir(name + '.json').as_posix() + '"'
 
     # Redirect stdout and stderr to the same file
     stdout = in_testdir(name, 'comp.stderr')

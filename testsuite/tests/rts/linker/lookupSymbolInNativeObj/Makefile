@@ -4,6 +4,6 @@ include $(TOP)/mk/test.mk
 
 lookupSymbolInNativeObj1:
 	'$(TEST_HC)' -shared -dynamic obj.c -o libobj.so
-	'$(TEST_HC)' -no-hs-main -dynamic lookupSymbolInNativeObj1.c -o main
+	'$(TEST_HC)' -no-hs-main -dynamic lookupSymbolInNativeObj1.c -o main -optc='-MJ' -optc='$(TOP)/compile_commands/lookupSymbolInNativeObj1.json'
 	./main
 

@@ -61,7 +61,7 @@ linker_unload:
 	$(RM) Test.o Test.hi
 	"$(TEST_HC)" $(TEST_HC_OPTS) -c Test.hs -v0
 	# -rtsopts causes a warning
-	"$(TEST_HC)" LinkerUnload.hs -package ghc $(filter-out -rtsopts, $(TEST_HC_OPTS)) linker_unload.c -o linker_unload -no-hs-main -optc-Werror
+	"$(TEST_HC)" LinkerUnload.hs -package ghc $(filter-out -rtsopts, $(TEST_HC_OPTS)) linker_unload.c -o linker_unload -no-hs-main -optc-Werror -optc='-MJ' -optc='$(TOP)/compile_commands/linker_unload.json'
 	./linker_unload "`'$(TEST_HC)' $(TEST_HC_OPTS) --print-libdir | tr -d '\r'`"
 
 .PHONY: linker_unload_native
@@ -94,7 +94,7 @@ linker_unload_native:
 
 .PHONY: linker_error1
 linker_error1:
-	"$(TEST_HC)" -c linker_error.c -o linker_error1.o
+	"$(TEST_HC)" -c linker_error.c -o linker_error1.o -optc='-MJ' -optc='$(TOP)/compile_commands/linker_error1.json'
 	"$(TEST_HC)" linker_error1.o -o linker_error1 -no-hs-main -optc-g -debug -threaded
 	./linker_error1 linker_error.c
 
@@ -103,8 +103,8 @@ linker_error1:
 
 .PHONY: linker_error2
 linker_error2:
-	"$(TEST_HC)" -c linker_error.c -o linker_error2.o
-	"$(TEST_HC)" -c linker_error2.c -o linker_error2_o.o
+	"$(TEST_HC)" -c linker_error.c -o linker_error2.o -optc='-MJ' -optc='$(TOP)/compile_commands/linker_error2.json'
+	"$(TEST_HC)" -c linker_error2.c -o linker_error2_o.o -optc='-MJ' -optc='$(TOP)/compile_commands/linker_error2_o.json'
 	"$(TEST_HC)" linker_error2.o -o linker_error2 -no-hs-main -optc-g -debug -threaded
 	./linker_error2 linker_error2_o.o
 
@@ -113,15 +113,15 @@ linker_error2:
 
 .PHONY: linker_error3
 linker_error3:
-	"$(TEST_HC)" -c linker_error.c -o linker_error3.o
-	"$(TEST_HC)" -c linker_error3.c -o linker_error3_o.o
+	"$(TEST_HC)" -c linker_error.c -o linker_error3.o -optc='-MJ' -optc='$(TOP)/compile_commands/linker_error3.json'
+	"$(TEST_HC)" -c linker_error3.c -o linker_error3_o.o -optc='-MJ' -optc='$(TOP)/compile_commands/linker_error3_o.json'
 	"$(TEST_HC)" linker_error3.o -o linker_error3 -no-hs-main -optc-g -debug -threaded
 	./linker_error3 linker_error3_o.o
 
 .PHONY: T7072
 T7072:
-	"$(TEST_HC)" load-object.c -o load-object -no-hs-main -debug
-	"$(TEST_HC)" -c T7072.c -o T7072.o
+	"$(TEST_HC)" load-object.c -o load-object -no-hs-main -debug -optc='-MJ' -optc='$(TOP)/compile_commands/load-object.json'
+	"$(TEST_HC)" -c T7072.c -o T7072.o -optc='-MJ' -optc='$(TOP)/compile_commands/T7072.json'
 	./load-object T7072.o
 
 .PHONY: T20494
@@ -142,8 +142,8 @@ T21618:
 
 .PHONY: reloc-none
 reloc-none:
-	"$(TEST_HC)" load-object.c -o load-object -no-hs-main -debug
-	"$(TEST_HC)" -c reloc-none.c -o reloc-none.o
+	"$(TEST_HC)" load-object.c -o load-object -no-hs-main -debug -optc='-MJ' -optc='$(TOP)/compile_commands/load-object.json'
+	"$(TEST_HC)" -c reloc-none.c -o reloc-none.o -optc='-MJ' -optc='$(TOP)/compile_commands/reloc-none.json'
 	./load-object reloc-none.o
 
 .PHONY: T25191
