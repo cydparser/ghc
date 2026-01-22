@@ -59,8 +59,10 @@ commonReinstallCabalArgs = do
     top       <- expr topDirectory
     root      <- getBuildRoot
     compiler  <- expr $ programPath =<< programContext Stage1 ghc
-    mconcat [ arg "--project-file"
-            , arg $ top -/- "cabal.project-reinstall"
+    mconcat [ arg "--project-dir"
+            , arg top
+            , arg "--project-file"
+            , arg "cabal.project-reinstall"
             , arg "--distdir"
             , arg $ root -/- "stage-cabal" -/- "dist-newstyle"
             , arg $ "--with-compiler=" ++ top -/- compiler

@@ -12,8 +12,7 @@ if "%CABFLAGS%"=="" (
     set CABFLAGS=--with-compiler=%GHC% --disable-documentation --disable-profiling --disable-library-profiling
 )
 
-rem It is currently more robust to pass Cabal an absolute path to the project file.
-set PROJ="%CD%/hadrian/cabal.project"
+set PROJ="%CD%/hadrian"
 
 if not exist %PROJ% (
     echo Current working directory must be GHC's top-level folder
@@ -40,9 +39,9 @@ if %CABMAJOR% equ 2 (
     if %CABMINOR% geq 2 set _cabal_ok=1
 )
 if %_cabal_ok% equ 1 (
-    "%CABAL%" --project-file=%PROJ% new-build %CABFLAGS% -j exe:hadrian
+    "%CABAL%" --project-dir=%PROJ% new-build %CABFLAGS% -j exe:hadrian
     rem use new-exec instead of new-run to make sure that the build-tools (alex & happy) are in PATH
-    "%CABAL%" --project-file=%PROJ% new-exec  %CABFLAGS%    hadrian -- ^
+    "%CABAL%" --project-dir=%PROJ% new-exec  %CABFLAGS%    hadrian -- ^
         --directory "%CD%" ^
         %*
 ) else (
