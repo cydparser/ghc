@@ -2235,9 +2235,6 @@ async def simple_build(name: Union[TestName, str],
                  mode: Optional[str] = None) -> Any:
     opts = getTestOpts()
 
-    if c_re.search(extra_hc_opts):
-        extra_hc_opts = extra_hc_opts + ' -optc="-MJ" -optc="' + in_srcdir(name + '.json').as_posix() + '"'
-
     # Redirect stdout and stderr to the same file
     stdout = in_testdir(name, 'comp.stderr')
     stderr = subprocess.STDOUT if not suppress_stdout else None
@@ -2251,6 +2248,9 @@ async def simple_build(name: Union[TestName, str],
             srcname = add_hs_lhs_suffix(name)
     else:
         srcname = Path(name)
+
+    if c_re.search(extra_hc_opts) or c_re.search(srcname.name):
+        extra_hc_opts = extra_hc_opts + ' -optc="-MJ" -optc="' + in_srcdir(name + '.json').as_posix() + '"'
 
     if mode is not None:
         to_do = mode
