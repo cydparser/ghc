@@ -8,6 +8,9 @@
 #define THREADS 3
 #define POP 2
 
+static inline bool
+cas_top(WSDeque *q, StgInt old, StgInt new);
+
 WSDeque *q;
 
 StgWord scratch[SCRATCH_SIZE];
