@@ -1,0 +1,34 @@
+{
+  "pins": {
+    "flake-compat": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "edolstra",
+        "repo": "flake-compat"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.1.0",
+      "revision": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
+      "url": "https://api.github.com/repos/edolstra/flake-compat/tarball/v1.1.0",
+      "hash": "19d2z6xsvpxm184m41qrpi1bplilwipgnzv9jy17fgw421785q1m"
+    },
+    "ghc.nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "ghc/ghc.nix",
+        "server": "https://gitlab.haskell.org/"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "04c05f5269fae87eb7cbee851c236590d4a16b2b",
+      "url": "https://gitlab.haskell.org/api/v4/projects/ghc%2Fghc.nix/repository/archive.tar.gz?sha=04c05f5269fae87eb7cbee851c236590d4a16b2b",
+      "hash": "1nid6ksgx9z2svy4mcbpkd511yafnvjjhjhp91az2m0w2572rbdy"
+    }
+  },
+  "version": 5
+}
